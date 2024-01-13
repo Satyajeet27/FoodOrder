@@ -1,7 +1,9 @@
 const Resturant = (props) => {
     const {resData} = props
-    console.log(resData?.info.cloudinaryImageId)
-    const {cloudinaryImageId,name,cuisines,costForTwo,avgRating,areaName} = resData?.info || {};
+    
+    
+
+    const {cloudinaryImageId,name,cuisines,costForTwo,avgRating,areaName} = resData;
   
     return (
       <div className='res-card' style={{backgroundColor: "#f0f0f0"}}>

@@ -30,8 +30,8 @@ const Body = () => {
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
 
-    const vale = json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.info
-    console.log(resturantList);
+    const vale = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info
+    console.log(vale);
 
   };
 
@@ -51,11 +51,10 @@ const Body = () => {
         <div className='resturant-container'>
           {
             resturantList?.map((resturant) => 
-            <link key={resturant?.info.id}>
-              <Resturant resData={resturant?.info} />
+              <Resturant key={resturant?.info.id} resData={resturant?.info} />
 
-            </link> ) 
-          }
+             )
+          };
           
         </div>
           
