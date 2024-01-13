@@ -30,8 +30,7 @@ const Body = () => {
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
 
-    const vale = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info
-    console.log(vale);
+  
 
   };
 
