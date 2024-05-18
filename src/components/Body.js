@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import resList from "../utils/mockData";
 import Resturant from "./Resturant";
+import { Link } from "react-router-dom";
 
 
 
@@ -15,9 +16,8 @@ const Body = () => {
   },[]);
 
   const fetchData = async() => {
-    //const response = await fetch('https://proxy.cors.sh/'+"https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
- 
-    const response = await fetch('https://corsproxy.org/?' + encodeURIComponent("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"));
+    const response = await fetch('https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
+    //const response = await fetch('https://corsproxy.org/?' + encodeURIComponent("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"));
     const json = await response.json();
 
     
@@ -50,7 +50,9 @@ const Body = () => {
         <div className='resturant-container'>
           {
             resturantList?.map((resturant) => 
-              <Resturant key={resturant?.info.id} resData={resturant?.info} />
+              <Link key={resturant?.info.id} to={"/restaurants/" + resturant?.info.id} >
+                <Resturant  resData={resturant?.info} />
+              </Link>
 
              )
           };
