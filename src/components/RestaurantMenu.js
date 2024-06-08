@@ -16,9 +16,10 @@ const RestaurantMenu = () => {
     //const url1 = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&restaurantId=464509&catalog_qa=undefined&submitAction=ENTER";
     const url = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&restaurantId="+resId;
     const fetchData = async() => {
-        const response = await fetch('https://corsproxy.org/?' + encodeURIComponent(url))
+        //const response = await fetch('https://corsproxy.org/?' + encodeURIComponent(url))
+        const response = await fetch("https://thingproxy.freeboard.io/fetch/" + url)
         const result = await response.json();
-        console.log(result.data?.cards[2]?.groupedCard)
+        console.log(result.data?.cards[4]?.groupedCard)
         setResInfo(result.data)
         
         //const data = result.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards;
@@ -31,10 +32,10 @@ const RestaurantMenu = () => {
     ) 
        
 
-    const {name,city}  = resInfo?.cards[0]?.card?.card?.info;
+    const {name,city}  = resInfo?.cards[2]?.card?.card?.info;
     
 
-    const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+    const {itemCards} = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
     
     //console.log(itemCards[0]?.card?.info)
    
